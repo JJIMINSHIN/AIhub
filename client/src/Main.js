@@ -5,74 +5,19 @@ import { useEffect, useState } from "react";
 
 const Main = () => {
 
-    // const [view, setView] = useState({
-    //     signIn: false,
-    //     signUp: false
-    // });
-
-    // // 로그인 입력받을 데이터 props로 넘겨줌
-    // const [signInData, setSignInData] =  useState({
-    //     email : '',
-    //     password:''
-    // });
-
-    // const onChangeSignInData = (e) => {
-    //     setSignInData({
-    //         ...signInData,
-    //         [e.target.name]: e.target.value
-    //     })
-    // };
-
-    // // useEffect(()=>{
-    // //     console.log(signInData);
-    // // }, [setSignInData]);
-
-
-    // const [signUpData, setSignUpData] =  useState({
-    //     email : '',
-    //     password:'',
-    //     rePassword:'',
-    //     name: ''
-    // });
-
-    // useEffect(()=>{
-    //     console.log(signUpData);
-    // }, [setSignUpData]);
-
-    // const onChangeSignUData = (e) =>{
-    //     setSignUpData({
-    //         ...signUpData,
-    //         [e.target.name]: e.target.value
-
-    //     })
-    // };
-
-
     return (
-        <main>
+        <div className="ai">
+            <div className="left" style={{ width: '50%', height: '100%', float: 'left', backgroundColor: 'violet', color: 'white' }}>
+                이부분 css빼서 left, right로 나눠주세용
+                여기가 left
+            </div>
 
-            <section className="py-5 text-center container">
-                <div className="row py-lg-5">
-                    <div className="col-lg-6 col-md-8 mx-auto">
-                        <h1 className="fw-light">영화</h1>
-                        <p className="lead text-muted">상세내용</p>
-                        <p>
-                            <button  className="btn btn-primary my-2">로그인</button> &nbsp;
-                            <button className="btn btn-secondary my-2">회원가입</button>
-                        </p>
-                    </div>
-                </div>
-            </section>
-            {/* {
-                //javascript 사용
-                view.signIn ? ( <SingInForm  signInData={signInData} onChangeSignInData={onChangeSignInData}/>) : (<></>)
-            }
-             {
-                //javascript 사용
-                view.signUp ? ( <SignUpForm signUpData={signUpData} onChangeSignUData={onChangeSignUData} />) : (<></>)
-            } */}
+            <div className="right" style={{ width: '50%', height: '100%', float: 'right', backgroundColor: 'lightskyblue', color: 'white' }}>
+                여기가 right
+            </div>
 
-        </main>
+        </div>
+
     ) //return
 };
 

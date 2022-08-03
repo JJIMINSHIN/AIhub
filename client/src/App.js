@@ -3,20 +3,26 @@ import Header from "./Header";
 import Main from "./Main";
 import SignUpForm from "./user/SignUpForm";
 import SingInForm from "./user/SignInForm";
+import List from "./List";
+import MyAccount from "./MyAccount";
+
 
 
 function App() {
-    return (
-      <>
+  return (
+    <>
       <BrowserRouter>
         <Header />
         <Routes>
-        <Route path='/login' element={< SingInForm/>} />
-          <Route path='/signup' element={< SignUpForm/>} />
+          <Route path='/' element={<Main/>} />
+          <Route path='/login' element={< SingInForm />} />
+          <Route path='/signup' element={< SignUpForm />} />
+          <Route path='/list' element={< List />} />
+          <Route path='/myaccount' element={< MyAccount />} />
         </Routes>
-        </BrowserRouter>
-      </>
-    );
-  }
-  
-  export default App;
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
