@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 
 const Main = () => {
 
+
+
+
     return (
         <div className="ai">
             <div className="left" style={{ width: '50%', height: '100%', float: 'left', backgroundColor: 'violet', color: 'white' }}>

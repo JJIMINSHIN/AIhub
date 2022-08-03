@@ -5,10 +5,10 @@ import SignUpForm from "./user/SignUpForm";
 function Header() {
 
   const onClickLoginButton = () =>{
-    window.location.href='/login'
+    window.location.href='/user/login'
   }
   const onClickSignUPButton = () =>{
-    window.location.href='/signup'
+    window.location.href='/user/signup'
   }
 
 

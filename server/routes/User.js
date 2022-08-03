@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const router = Router();
+const { User } = require('../models/');
 
-router.post("/signUp", async (req, res, next) => {
+router.post("/signup", async (req, res, next) => {
     const { email, password, name } = req.body;
     console.log(email, password, name);
 
-    let hashPassword = passwordHash(password);
     const checkEmail = await User.findOne({ email });
 
     if (checkEmail) {
@@ -19,7 +19,7 @@ router.post("/signUp", async (req, res, next) => {
 
     await User.create({
         email,
-        password: hashPassword,
+        password,
         name
     });
 

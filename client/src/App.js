@@ -14,10 +14,10 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element={<Main/>} />
+          <Route path='/' element={<Main />} />
           <Route path='/login' element={< SingInForm />} />
-          <Route path='/signup' element={< SignUpForm />} />
-          <Route path='/list' element={< List />} />
+          <Route path='/user/signup' element={< SignUpForm />} />
+          <Route path='/user/list' element={< List />} />
           <Route path='/myaccount' element={< MyAccount />} />
         </Routes>
       </BrowserRouter>
