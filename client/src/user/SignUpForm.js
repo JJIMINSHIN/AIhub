@@ -14,6 +14,12 @@ const SignUpForm = () => {
     rePassword: '',
     name: ''
   });
+
+  useEffect(()=>{
+    console.log(signUpData)
+  },[setSignUpData])
+
+  
   const [errorMessage, setErrorMessage] = useState();
 
   const onChangeSignUData = (e) => {
@@ -63,10 +69,10 @@ const SignUpForm = () => {
     sendSingUpData().then(res => {
       console.log(res);
       alert(res.data.result);
+      window.location.href='/user/login';
     }).catch(e => {
       console.log(e);
-      setErrorMessage(e.response.data.fail)
-
+      setErrorMessage(e.response.data.fail);
     })
 
 

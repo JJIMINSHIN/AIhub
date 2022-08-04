@@ -15,9 +15,9 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='/login' element={< SingInForm />} />
+          <Route path='/user/login' element={< SingInForm />} />
           <Route path='/user/signup' element={< SignUpForm />} />
-          <Route path='/user/list' element={< List />} />
+          <Route path='/list' element={< List />} />
           <Route path='/myaccount' element={< MyAccount />} />
         </Routes>
       </BrowserRouter>
