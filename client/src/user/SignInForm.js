@@ -1,59 +1,57 @@
+import React from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import { useState,useEffect } from 'react';
-import {useCookies} from 'react-cookie'
+import { useState, useEffect } from 'react';
 import port from './../data/port.json'
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 
-const SingInForm = ({}) => {
+const SingInForm = () => {
 
   const [signInData, setSignInData] = useState({
-    email:'',
+    email: '',
     password: ''
   });
-  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState();
 
-  const onClickLoginButton = () =>{
-    if(signInData.email === ''){
+  const onClickLoginButton = () => {
+
+    if (signInData.email === '') {
       alert('이메일을 입력해주세요.');
       $('#email').focus();
       return;
     }
 
-    if(signInData.password === ''){
+    if (signInData.password === '') {
       alert('비밀번호를 입력해주세요.');
       $('#password').focus();
       return;
     }
 
-    sendSignInData().then(res =>{
+    sendSignInData().then(res => {
       console.log(res);
       alert('로그인이 완료되었습니다.');
-      window.location.href='/'
-      
-    }).catch(e =>{
+      window.location.href = '/user/list'
+
+    }).catch(e => {
       setErrorMessage(e.response.data.fail)
     })
   }
 
-  const onChangeSignInData =(e) =>{
+  const onChangeSignInData = (e) => {
     setSignInData({
       ...signInData,
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     })
   };
-  useEffect(()=>{
-    console.log(signInData);
-}, [setSignInData]);
 
 
-const sendSignInData = async() =>{
-  return await axios.post(port.url +'/user/login', signInData)
-}
+
+  const sendSignInData = async () => {
+    return await axios.post(port.url + '/user/login', signInData)
+  }
 
   return (
     <div className="album">
@@ -68,7 +66,12 @@ const sendSignInData = async() =>{
             <input type="password" value={signInData.password} onChange={onChangeSignInData} className="form-control" id="password" name="password" />
           </div>
           <div className='mb-3'>
-           
+
+          </div>
+          <div className="mb-3">
+            <p className="text-danger">
+              {errorMessage}
+            </p>
           </div>
 
           <button type="button" onClick={onClickLoginButton} className="btn btn-primary">로그인</button>

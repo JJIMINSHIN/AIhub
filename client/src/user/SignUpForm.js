@@ -1,6 +1,7 @@
+import React from 'react';
 import $ from 'jquery';
 import axios from 'axios';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import port from './../data/port.json'
 
 
@@ -15,11 +16,11 @@ const SignUpForm = () => {
     name: ''
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(signUpData)
-  },[setSignUpData])
+  }, [signUpData])
 
-  
+
   const [errorMessage, setErrorMessage] = useState();
 
   const onChangeSignUData = (e) => {
@@ -69,7 +70,7 @@ const SignUpForm = () => {
     sendSingUpData().then(res => {
       console.log(res);
       alert(res.data.result);
-      window.location.href='/user/login';
+      window.location.href = '/user/login';
     }).catch(e => {
       console.log(e);
       setErrorMessage(e.response.data.fail);
@@ -101,6 +102,11 @@ const SignUpForm = () => {
           <div className="mb-3">
             <label htmlFor="name" className="form-label">이름</label>
             <input type="text" value={signUpData.name} onChange={onChangeSignUData} className="form-control" id="name" name="name" />
+          </div>
+          <div className="mb-3">
+            <p className="text-danger">
+              {errorMessage}
+            </p>
           </div>
           <button type="button" onClick={onClickSignUpButton} className="btn btn-primary">회원가입</button>
 

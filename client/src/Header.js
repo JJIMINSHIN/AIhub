@@ -1,6 +1,8 @@
-import Main from "./Main";
-import { useNavigate } from "react-router-dom";
-import SignUpForm from "./user/SignUpForm";
+import React from 'react';
+
+// import Main from "./Main";
+// import { useNavigate } from "react-router-dom";
+// import SignUpForm from "./user/SignUpForm";
 
 function Header() {
 
