@@ -5,5 +5,6 @@ response = google_images_download.googleimagesdownload()   #class instantiation
 arguments = { 
     "keywords":
     "이석훈, 셔누, 유승호","limit":30,"print_urls":True, "format": "jpg"}   #creating list of arguments
+
 paths = response.download(arguments)   #passing the arguments to the function
 print(paths)   #printing absolute paths of the downloaded images
