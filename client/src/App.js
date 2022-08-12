@@ -2,8 +2,10 @@ import {BrowserRouter} from 'react-router-dom';
 import { Route, Routes } from "react-router-dom";
 
 
-import Login from "./Login";
-import Main from "./Main";
+import SignUp from './components/pages/SignUp';
+import Home from './components/pages/Home';
+import SignInForm from './components/pages/SignInForm';
+import SignUpForm from './components/pages/SignUpForm';
 
 
 function App() {
@@ -12,8 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Main /> }/> 
-        <Route path='/login' element={<Login />}/>
+        <Route path='/' element={<Home /> }/> 
+        <Route path='/SignUp' element={<SignUp />}/>
+        <Route path='/SignUpForm' element={<SignUpForm />}/>
+        <Route path='/SignInForm' element={<SignInForm />}/>
       </Routes>
       </BrowserRouter>
     </div>
