@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './SignUpForm.css';
+import { Link } from 'react-router-dom';
 
 function RegisterPage() {
   const [name, setName] = useState("")
@@ -29,6 +30,10 @@ function RegisterPage() {
     }
   }
 
+  const onSignIn = () => {
+    window.location.href='/SignInForm'
+  }
+
   return (
     <div class="loginregister">
         <h1>SIGN UP</h1>
@@ -37,7 +42,10 @@ function RegisterPage() {
             <div><input name="email" type="email" placeholder="이메일" value={email} onChange={onEmailHandler} class="loginregister__input"/></div>
             <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
             <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler} class="loginregister__input"/></div>
-            <div><button type="submit" onSubmit={onSubmit} class="loginregister__button">계정 생성하기</button></div>
+            <Link to='/SignInForm' className='btn-mobile'>
+              <div><button type="submit" onSubmit={onSubmit} onClick={onSignIn} class="loginregister__button">계정 생성하기</button></div>
+            </Link>
+
         </form>
     </div>
   );
