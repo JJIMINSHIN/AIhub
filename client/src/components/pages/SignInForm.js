@@ -37,7 +37,9 @@ function SignInForm() {
             <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
             <div className='SignUpContainer'>
               <span>아직 회원이 아니신가요?</span>
-              <button onClick={onSignUp}>회원가입</button>
+              <Link to='/SignUpForm'>
+                <button onClick={onSignUp}>회원가입</button>
+              </Link>
             </div>
             <Link to='/Home' className='btn-mobile'>
               <div><button type="submit" onSubmit={onSubmit} onClick={onLoginButton} class="loginregister__button">로그인</button></div>
