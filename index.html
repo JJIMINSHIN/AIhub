@@ -18,22 +18,22 @@
     <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="predict()">예측</button>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <div class="file-upload">
-        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
+    <script className="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div className="file-upload">
+        <button className="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
             Image</button>
 
-        <div class="image-upload-wrap">
-            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-            <div class="drag-text">
+        <div className="image-upload-wrap">
+            <input className="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+            <div className="drag-text">
                 <h3>Drag and drop a file or select add Image</h3>
             </div>
         </div>
-        <div class="file-upload-content">
-            <img class="file-upload-image" id="face-image" src="#" alt="your image" />
-            <div class="image-title-wrap">
-                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                        class="image-title">Uploaded Image</span></button>
+        <div className="file-upload-content">
+            <img className="file-upload-image" id="face-image" src="#" alt="your image" />
+            <div className="image-title-wrap">
+                <button type="button" onclick="removeUpload()" className="remove-image">Remove <span
+                        className="image-title">Uploaded Image</span></button>
             </div>
         </div>
     </div>
@@ -68,15 +68,14 @@
             $('.image-upload-wrap').show();
         }
         $('.image-upload-wrap').bind('dragover', function () {
-            $('.image-upload-wrap').addClass('image-dropping');
+            $('.image-upload-wrap').addclassName('image-dropping');
         });
         $('.image-upload-wrap').bind('dragleave', function () {
-            $('.image-upload-wrap').removeClass('image-dropping');
+            $('.image-upload-wrap').removeclassName('image-dropping');
         });
 
     </script>
-<<<<<<< HEAD
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -89,7 +88,7 @@
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
             model = await tmImage.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalClasses();
+            maxPredictions = model.getTotalclassNamees();
 
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
@@ -99,7 +98,7 @@
             window.requestAnimationFrame(loop);
 
             labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) { // and class labels
+            for (let i = 0; i < maxPredictions; i++) { // and className labels
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
@@ -110,14 +109,13 @@
             let image = document.getElementById("face-image")
             const prediction = await model.predict(image, false);
             for (let i = 0; i < maxPredictions; i++) {
-                const classPrediction =
-                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
+                const classNamePrediction =
+                    prediction[i].classNameName + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classNamePrediction;
             }
         }
-    </script>
+    </script> -->
 
-=======
    <div>Teachable Machine Image Model</div>
    <button type="button" onclick="init()">Start</button>
    <div id="webcam-container"></div>
@@ -143,7 +141,7 @@
            // or files from your local hard drive
            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
            model = await tmImage.load(modelURL, metadataURL);
-           maxPredictions = model.getTotalClasses();
+           maxPredictions = model.getTotalclassNamees();
    
            // Convenience function to setup a webcam
            const flip = true; // whether to flip the webcam
@@ -155,7 +153,7 @@
            // append elements to the DOM
            document.getElementById("webcam-container").appendChild(webcam.canvas);
            labelContainer = document.getElementById("label-container");
-           for (let i = 0; i < maxPredictions; i++) { // and class labels
+           for (let i = 0; i < maxPredictions; i++) { // and className labels
                labelContainer.appendChild(document.createElement("div"));
            }
        }
@@ -171,9 +169,9 @@
            // predict can take in an image, video or canvas html element
            const prediction = await model.predict(webcam.canvas);
            for (let i = 0; i < maxPredictions; i++) {
-               const classPrediction =
-                   prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-               labelContainer.childNodes[i].innerHTML = classPrediction;
+               const classNamePrediction =
+                   prediction[i].classNameName + ": " + prediction[i].probability.toFixed(2);
+               labelContainer.childNodes[i].innerHTML = classNamePrediction;
            }
        }
    </script>

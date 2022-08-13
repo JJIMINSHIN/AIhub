@@ -30,11 +30,11 @@ function SignInForm() {
 
 
   return (
-      <div class="loginregister">
+      <div className="loginregister">
         <h1>SIGN IN</h1>
         <form>
-            <div><input name="email" type="email" placeholder="이메일" value={email} onChange={onEmailHandler} class="loginregister__input"/></div>
-            <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} class="loginregister__input"/></div>
+            <div><input name="email" type="email" placeholder="이메일" value={email} onChange={onEmailHandler} className="loginregister__input"/></div>
+            <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler} className="loginregister__input"/></div>
             <div className='SignUpContainer'>
               <span>아직 회원이 아니신가요?</span>
               <Link to='/SignUpForm'>
@@ -42,7 +42,7 @@ function SignInForm() {
               </Link>
             </div>
             <Link to='/Home' className='btn-mobile'>
-              <div><button type="submit" onSubmit={onSubmit} onClick={onLoginButton} class="loginregister__button">로그인</button></div>
+              <div><button type="submit" onSubmit={onSubmit} onClick={onLoginButton} className="loginregister__button">로그인</button></div>
             </Link>
         </form>
       </div>
