@@ -4,28 +4,88 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>hello world</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <nav class="navbar navbar-expand-lg " nav-distance>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">동물상 테스트</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h1 class="title">애인상 테스트</h1>
+        <h2 class="subtitle">내 미래의 애인은 어떤 동물과 닮았을까?</h2>
+    </section>
+    <!-- 12분 16초  -->
+    <!-- 
+        섹션 클래스 이름을 유튜브, 섹션의 자식 : div(클래스 이름 : youtube-cover)의 자식 : a태그(클래스 이름 :youtube-link) + 형제요소 img 태그의 클래스 : youtube-icon
+        section.youtube>div.youtube-cover>a.youtube-link+img.youtube-icon
+    -->
+    <section class="youtube">
+        <div class="youtube-cover container d-flex flex-row-reverse">
+            <img src="img/youtube-copy.jpg" alt="youtube-icon" class="youtube-icon">
+            <a href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg" class="youtube-link">By 니은팀</a>
+        </section>
+
+
+
     <div>Teachable Machine Image Model</div>
     <button type="button" onclick="init()">Start</button>
     <button type="button" onclick="predict()">예측</button>
-    <script className="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <div className="file-upload">
-        <button className="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <div class="file-upload">
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add
             Image</button>
 
-        <div className="image-upload-wrap">
-            <input className="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-            <div className="drag-text">
+        <div class="image-upload-wrap">
+            <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+            <div class="drag-text">
                 <h3>Drag and drop a file or select add Image</h3>
             </div>
         </div>
@@ -37,25 +97,60 @@
             </div>
         </div>
     </div>
+    <div id="webcam-container"></div>
     <div id="label-container"></div>
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        var disqus_config = function () {
+        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        */
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://nieun.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    
+    
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
 
-                var reader = new FileReader();
+                let reader = new FileReader();
 
                 reader.onload = function (e) {
                     $('.image-upload-wrap').hide();
-
                     $('.file-upload-image').attr('src', e.target.result);
                     $('.file-upload-content').show();
-
                     $('.image-title').html(input.files[0].name);
                 };
 
                 reader.readAsDataURL(input.files[0]);
+                init().then(() => predict());
+                
 
             } else {
                 removeUpload();
@@ -75,7 +170,8 @@
         });
 
     </script>
-    <!-- <script type="text/javascript">
+<<<<<<< HEAD
+    <script type="text/javascript">
         // More API functions here:
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
@@ -88,7 +184,7 @@
             const modelURL = URL + "model.json";
             const metadataURL = URL + "metadata.json";
             model = await tmImage.load(modelURL, metadataURL);
-            maxPredictions = model.getTotalclassNamees();
+            maxPredictions = model.getTotalClasses();
 
             // Convenience function to setup a webcam
             const flip = true; // whether to flip the webcam
@@ -98,7 +194,7 @@
             window.requestAnimationFrame(loop);
 
             labelContainer = document.getElementById("label-container");
-            for (let i = 0; i < maxPredictions; i++) { // and className labels
+            for (let i = 0; i < maxPredictions; i++) { // and class labels
                 labelContainer.appendChild(document.createElement("div"));
             }
         }
@@ -109,13 +205,14 @@
             let image = document.getElementById("face-image")
             const prediction = await model.predict(image, false);
             for (let i = 0; i < maxPredictions; i++) {
-                const classNamePrediction =
-                    prediction[i].classNameName + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classNamePrediction;
+                const classPrediction =
+                    prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
             }
         }
-    </script> -->
+    </script>
 
+=======
    <div>Teachable Machine Image Model</div>
    <button type="button" onclick="init()">Start</button>
    <div id="webcam-container"></div>
@@ -141,7 +238,7 @@
            // or files from your local hard drive
            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
            model = await tmImage.load(modelURL, metadataURL);
-           maxPredictions = model.getTotalclassNamees();
+           maxPredictions = model.getTotalClasses();
    
            // Convenience function to setup a webcam
            const flip = true; // whether to flip the webcam
@@ -153,7 +250,7 @@
            // append elements to the DOM
            document.getElementById("webcam-container").appendChild(webcam.canvas);
            labelContainer = document.getElementById("label-container");
-           for (let i = 0; i < maxPredictions; i++) { // and className labels
+           for (let i = 0; i < maxPredictions; i++) { // and class labels
                labelContainer.appendChild(document.createElement("div"));
            }
        }
@@ -169,9 +266,9 @@
            // predict can take in an image, video or canvas html element
            const prediction = await model.predict(webcam.canvas);
            for (let i = 0; i < maxPredictions; i++) {
-               const classNamePrediction =
-                   prediction[i].classNameName + ": " + prediction[i].probability.toFixed(2);
-               labelContainer.childNodes[i].innerHTML = classNamePrediction;
+               const classPrediction =
+                   prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+               labelContainer.childNodes[i].innerHTML = classPrediction;
            }
        }
    </script>
