@@ -3,12 +3,11 @@ import $ from 'jquery';
 import axios from 'axios';
 import './SignUpForm.css';
 import { Link } from 'react-router-dom';
+import port from './../data/port.json'
 
 
 
-
-function RegisterPage() {
-  
+const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
     email: '',
     password: '',
@@ -20,15 +19,13 @@ function RegisterPage() {
     console.log(signUpData);
   }, [setSignUpData]);
 
-  const onChangeSignUData = (e) =>{
+  const onChangeSignUData = (e) => {
     setSignUpData({
-        ...signUpData,
-        [e.target.name]: e.target.value
+      ...signUpData,
+      [e.target.name]: e.target.value
 
     })
-};
-
-  
+  }
 
   const onClickSignUpButton = () => {
     if (signUpData.email === '') {
@@ -52,6 +49,7 @@ function RegisterPage() {
       $("#name").focus();
       return;
     }
+    
     if(signUpData.password !== signUpData.rePassword){
       alert('비밀번호가 같지 않습니다.');
       setSignUpData({
@@ -66,7 +64,6 @@ function RegisterPage() {
     sendSignUpData().then(res =>{
       console.log(res);
       alert(res.data.result);
-      window.location.href='/user/login'
     }).catch(e =>{
       console.log(e)
     })
@@ -74,23 +71,25 @@ function RegisterPage() {
 
   //회원가입 router와 연결
   const sendSignUpData = async () =>{
-    return await axios.post('http://localhost:3000/user/signup')
+    return await axios.post(port.url + "/user/signup", signUpData);
   }
-
   return (
     <div className="loginregister">
       <h1>SIGN UP</h1>
       <form>
-        <div><input name="name" type="text" placeholder="이름" value={signUpData.name} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="email" type="email" placeholder="이메일" value={signUpData.email} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="password" type="password" placeholder="비밀번호" value={signUpData.password} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={signUpData.rePassword} onChange={onChangeSignUData} className="loginregister__input" /></div>
+        <div><input name="email" id='email' type="email" placeholder="이메일" value={signUpData.email} onChange={onChangeSignUData} className="loginregister__input" /></div>
+        <div><input name="password" id='password' type="password" placeholder="비밀번호" value={signUpData.password} onChange={onChangeSignUData} className="loginregister__input" /></div>
+        <div><input name="rePassword" id='rePassword' type="password" placeholder="비밀번호 확인" value={signUpData.rePassword} onChange={onChangeSignUData} className="loginregister__input" /></div>
+        <div><input name="name" id='name' type="text" placeholder="이름" value={signUpData.name} onChange={onChangeSignUData} className="loginregister__input" /></div>
         <Link to='/SignInForm' className='btn-mobile'>
           <div><button type="submit" onClick={onClickSignUpButton} className="loginregister__button">계정 생성하기</button></div>
         </Link>
-
+  
       </form>
     </div>
   );
-}
-export default RegisterPage;
+};
+
+
+
+export default SignUpForm;

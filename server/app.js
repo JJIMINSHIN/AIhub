@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/user');
+const cors = require('cors');
 
 const app = express();
 
@@ -15,9 +16,11 @@ mongoose.connection.on("error", (err)=>{
     console.log(err);
 });
 
+app.use(cors());
+
 app.use(express.json());
 app.use('/user', userRouter);
 
-app.listen(3000, ()=>{
+app.listen(8080, ()=>{
     console.log('server open')
 });
