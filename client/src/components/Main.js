@@ -6,15 +6,15 @@ import './Main.css';
 import './../'
 
 
-function HeroSection() {
+const Main = () => {
 
-  // view를 변경하기 위한 useState
-  const [view, setView] = useState({
-    signIn: false,
-    signUp: false
+ // view를 변경하기 위한 useState
+ const [view, setView] = useState({
+  signIn: false,
+  signUp: false
 });
 const onButtonEvent = () =>{
-  window.location.href='main.html'
+window.location.href='main.html'
 }
   return (
     <main>
@@ -38,5 +38,4 @@ const onButtonEvent = () =>{
   </main>
   );
 }
-
-export default HeroSection;
+export default Main;
