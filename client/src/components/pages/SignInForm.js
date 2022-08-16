@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import './SignInForm.css'
 import { Link } from 'react-router-dom';
-import Home from './Home';
-import SignUpForm from './SignUpForm';
 import $ from "jquery";
 import axios from "axios";
 import port from './../data/port.json'
@@ -22,10 +20,6 @@ const SignInForm = () => {
   }
 
 
- 
-  const onSubmit = (event) => {
-    event.preventDefault();
-  }
 
   const onLoginButton = () => {
     if (signInData.email === "") {
@@ -69,7 +63,7 @@ const SignInForm = () => {
           </Link>
         </div>
         <Link to='/Home' className='btn-mobile'>
-          <div><button type="submit" onSubmit={onSubmit} onClick={onLoginButton} className="loginregister__button">로그인</button></div>
+          <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
         </Link>
       </form>
     </div>
