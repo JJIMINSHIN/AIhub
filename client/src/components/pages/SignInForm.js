@@ -51,7 +51,7 @@ const SignInForm = () => {
     sendSignInData().then(res => {
       console.log(res);
       alert('로그인이 완료되었습니다.');
-      navigate("/review/list")
+      window.location.href='/futureHubby'
     }).catch(e=>{
       throw new Error(e)
     })
@@ -78,14 +78,12 @@ const SignInForm = () => {
               <span>아직 회원이 아니신가요?</span>
               <button className='signup_register_btn' onClick={onSignUp}>회원가입</button>
             </div>
-            <Link to='/' className='btn-mobile'>
-              <div><button className="signin_btn" type="submit" onClick={onLoginButton}>로그인</button></div>
-            </Link>
+
           </form>
         </div>
-        <Link to='/' className='btn-mobile'>
-          <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
-        </Link>
+        {/* <Link to='/futureHubby' className='btn-mobile'> */}
+          <div><button type="button" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
+        {/* </Link> */}
       </div>
     </div>
 

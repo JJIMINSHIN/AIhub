@@ -249,7 +249,7 @@ const Test = () => {
           <p className="d-flex align-items-center pr-3">여자</p>
           <div>
             <input type="checkbox" id="gender" />
-            <label for="gender">
+            <label htmlFor="gender">
               <span className="knob">
                 <i></i>
               </span>
@@ -259,7 +259,7 @@ const Test = () => {
         </section>
         <div className="mt-3 container file-upload">
           <div className="image-upload-wrap">
-            <input className="file-upload-input" type='file' onChange="readURL(this);" accept="image/*" />
+            <input className="file-upload-input" type='file' onChange={readURL()} accept="image/*" />
             <div className="drag-text">
               <img src="img/upload.svg" className="mt-5 pt-5 upload" />
                 <h3 className="mb-5 pb-5 pt-4  upload-text">얼굴 사진을 올려놓거나 눌러서 업로드하세요!</h3>
@@ -279,7 +279,7 @@ const Test = () => {
             <div id="label-container" className="d-flex flex-column justify-content-around"></div>
             <div id="addThis" className="addthis_inline_share_toolbox_6lz1"></div>
             <div className="pt-3 image-title-wrap">
-              <button type="button p-2" className="try-again-btn" onclick="window.location.reload();">
+              <button type="button p-2" className="try-again-btn" onClick="window.location.reload();">
                 <span className="try-again-text">다른 사진으로 재시도</span>
               </button>
             </div>
