@@ -64,6 +64,8 @@ const SignUpForm = () => {
     sendSignUpData().then(res =>{
       console.log(res);
       alert(res.data.result);
+      window.location.reload();
+      window.location.href='/login'
     }).catch(e =>{
       console.log(e)
     })

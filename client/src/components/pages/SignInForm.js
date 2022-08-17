@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './SignInForm.css'
 import { Link } from 'react-router-dom';
 import $ from "jquery";
@@ -19,6 +19,10 @@ const SignInForm = () => {
     })
   }
 
+     useEffect(() => {
+        console.log(signInData);
+    }, [signInData]);
+
 
 
   const onLoginButton = () => {
@@ -36,14 +40,16 @@ const SignInForm = () => {
 
     sendSignInData().then(res => {
       console.log(res);
-      alert('로그인이 완료되었습니다.');
+      alert(res.data.result);
+      window.location.reload();
+      window.location.href='/futureHubby'
     }).catch(e => {
       console.log(e)
     })
   }
 
   const onSignUp = () => {
-    window.location.href = '/SignUpForm'
+    window.location.href = '/signup'
   }
 
   const sendSignInData = async () => {
@@ -62,7 +68,7 @@ const SignInForm = () => {
             <button onClick={onSignUp}>회원가입</button>
           </Link>
         </div>
-        <Link to='/Home' className='btn-mobile'>
+        <Link to='/' className='btn-mobile'>
           <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
         </Link>
       </form>

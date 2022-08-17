@@ -1,21 +1,18 @@
 import React from 'react';
 import '../App.css';
-import { Button } from './Button';
-import { useState } from "react";
+// import { Button } from './Button';
 import './Main.css';
-import SignInForm from './pages/SignInForm'
 
-const Main = ({ signInData, onChangeSignInData }) => {
+const Main = () => {
 
   // view를 변경하기 위한 useState
-  const [view, setView] = useState({
-    signIn: false,
-  });
-  const onButtonEvent = (onChangeSignInData) => {
-    setView({
-      signIn: true,
-    })
-    window.location.href = 'main.html'
+
+  const onButtonEvent = ({ onChangeSignInData }) => {
+    if(onChangeSignInData){
+      window.location.href='main.html'
+    }else{
+      window.location.href='/login'
+    }
   }
   return (
     <main>
@@ -24,17 +21,15 @@ const Main = ({ signInData, onChangeSignInData }) => {
         <h1>당신의 미래 애인상을<br />찾아드립니다.</h1>
         <p>내 얼굴형으로 추측하는 <br />나의 미래 애인상은 과연 누가 될까요?</p>
         <div className='hero-btns'>
-          <Button onClick={onButtonEvent}
-            className='btns'
-            buttonStyle='btn--outline'
-            buttonSize='btn--large'
-          >
-            GET STARTED
-          </Button>
-        </div>
+          <button onClick={onButtonEvent}>
+          GET STARTED
+        </button>
+       
       </div>
-
-    </main>
+    </div>
+     
+    </main >
   );
+
 }
 export default Main;
