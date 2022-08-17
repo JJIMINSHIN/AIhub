@@ -79,7 +79,7 @@ const SignInForm = () => {
               <button className='signup_register_btn' onClick={onSignUp}>회원가입</button>
             </div>
             <Link to='/' className='btn-mobile'>
-              <div><button className="signin_btn" type="submit" onSubmit={onSubmit} onClick={onLoginButton}>로그인</button></div>
+              <div><button className="signin_btn" type="submit" onClick={onLoginButton}>로그인</button></div>
             </Link>
           </form>
         </div>

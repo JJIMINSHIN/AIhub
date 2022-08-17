@@ -5,9 +5,9 @@ import $ from 'jquery';
 import {
   femaleDogRand, femaleCatRand, femaleDeerRand, femaleFoxRand, femaleRabbitRand,
   maleDogRand, maleCatRand, maleDeerRand, maleFoxRand, maleRabbitRand
-} from './../../../public/random';
+} from './../../random.js';
 import { useNavigate } from "react-router-dom";
-import './../../../public/style.css'
+import './../../style.css'
 
 const urlMale = "https://teachablemachine.withgoogle.com/models/f7y2kT2ZB/";
 const urlFemale = "https://teachablemachine.withgoogle.com/models/4FxEnem2x/";

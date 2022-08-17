@@ -25,8 +25,8 @@ const Main = () => {
             <div className='hero-btns'>
               <button type='button' onClick={onButtonEvent}
                 className='btns'
-                buttonStyle='btn--outline'
-                buttonSize='btn--large'
+                // buttonStyle='btn--outline'
+                // buttonSize='btn--large'
               >
                 GET STARTED
               </button>
