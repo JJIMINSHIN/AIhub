@@ -3,7 +3,11 @@ import './SignInForm.css'
 import { Link } from 'react-router-dom';
 import $ from "jquery";
 import axios from "axios";
-import port from './../data/port.json'
+import port from './../data/port.json';
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+
+
 
 const SignInForm = () => {
 
@@ -19,9 +23,12 @@ const SignInForm = () => {
     })
   }
 
-     useEffect(() => {
-        console.log(signInData);
-    }, [signInData]);
+  useEffect(() => {
+    console.log(signInData);
+  }, [signInData]);
+
+  const [cookies, setCookie, removeCookie] = useCookies(["userData"]);
+  const navigate = useNavigate();
 
 
 
@@ -40,9 +47,9 @@ const SignInForm = () => {
 
     sendSignInData().then(res => {
       console.log(res);
-      alert(res.data.result);
-      window.location.reload();
-      window.location.href='/futureHubby'
+      setCookie("userData", res.data, { path: "/" });
+      alert("로그인이 완료되었습니다.");
+      navigate("/futureHubby");
     }).catch(e => {
       console.log(e)
     })
@@ -53,7 +60,7 @@ const SignInForm = () => {
   }
 
   const sendSignInData = async () => {
-    return await axios.post(port.url + '/user/login', signInData);
+    return await axios.post(port.url + '/login', signInData);
   }
 
   return (
