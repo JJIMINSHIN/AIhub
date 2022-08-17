@@ -10,7 +10,7 @@ router.post('/signup', async (req, res) => {
         const { email, password, name } = req.body;
         console.log(email, password, name);
 
-        let psswordHash =hashPassword(password);
+        let psswordHash = hashPassword(password);
         console.log(password);
         const checkEmail = await User.findOne({ email })
 
@@ -26,7 +26,7 @@ router.post('/signup', async (req, res) => {
 
         await User.create({
             email,
-            password : psswordHash,
+            password: psswordHash,
             name
         });
 
@@ -47,8 +47,8 @@ router.post('/login', async (req, res) => {
         let { email, password } = req.body;
         console.log(email, password)
 
-        let psswordHash =hashPassword(password);
-        
+        let psswordHash = hashPassword(password);
+
         const checkEmail = await User.findOne({ email });
         console.log('checkEmail', checkEmail)
 
@@ -78,7 +78,7 @@ router.post('/login', async (req, res) => {
 
 
 // password hash
-const hashPassword = (password) =>{
+const hashPassword = (password) => {
     return cryto.createHash('sha1').update(password).digest('hex');
 }
 

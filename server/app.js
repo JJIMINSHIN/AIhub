@@ -19,7 +19,7 @@ mongoose.connection.on("error", (err)=>{
 app.use(cors());
 
 app.use(express.json());
-app.use('/user', userRouter);
+app.use('/', userRouter);
 
 app.listen(8080, ()=>{
     console.log('server open')
