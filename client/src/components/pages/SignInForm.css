@@ -1,40 +1,95 @@
-.loginregister {
+video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.signinform_container  {
     display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.wrap {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin_box {
+    background-color: white;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    flex-direction: column;
+    padding: 20px;
+    border-radius: 10px;
+    /* opacity: 80%; */
 }
-.loginregister__input {
+
+input {
     width: 300px;
     height: 50px;
     padding-left: 10px;
     margin: 10px;
+    border: 1px solid #73777B ;
+    border-radius: 5px;
 }
-.SignUpContainer{
-    margin: 0 auto;
-    width: 300px;
-    height: 30px;
-}
+
 .SignUpContainer > span {
     font-size: 10px;
     color: gray;
     margin-right: 5px;
 }
-.SignUpContainer > button {
+.signup_register_btn {
     border: none;
     outline: 0;
     background-color: transparent;
-    padding: 5px;
-    border-radius: 5px;
     cursor: pointer;
+    color : #FEDB39;
 }
-.loginregister__button {
-    background-color: rgb(248, 47, 98);
-    color: rgb(255, 255, 255);
+.signin_btn {
+    color : white;
+    background-color: #FEDB39;
+    border: none;
+    outline: 0;
     font-weight: 700;
     width: 100%;
-    border-radius: 40px;
+    border-radius: 10px;
     height: 48px;
     margin-top: 10px;
+    cursor: pointer;
+} 
+
+.signin_btn:hover{
+    transition: all 0.3s ease-out;
+    background: #fff;
+    color: #FEDB39;
+    transition: 250ms;
+    border : 1px solid #FEDB39;
+}
+
+@media screen and (max-width: 768px) {
+    .signin_box {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .signin_box {
+        width: 300px;
+    }
+    .loginregister__input {
+        width: 230px;
+        height: 40px;
+        margin: 5px;
+    }
+    .signin_btn {
+        width: 230px;
+        height: 40px;
+    }
 }
