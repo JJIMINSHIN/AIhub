@@ -78,11 +78,14 @@ const SignInForm = () => {
               <span>아직 회원이 아니신가요?</span>
               <button className='signup_register_btn' onClick={onSignUp}>회원가입</button>
             </div>
-            <button type="button"
-            onClick={onLoginButton} className="signin_btn">로그인</button>
+            <Link to='/' className='btn-mobile'>
+              <div><button className="signin_btn" type="submit" onSubmit={onSubmit} onClick={onLoginButton}>로그인</button></div>
+            </Link>
           </form>
         </div>
-
+        <Link to='/' className='btn-mobile'>
+          <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
+        </Link>
       </div>
     </div>
 

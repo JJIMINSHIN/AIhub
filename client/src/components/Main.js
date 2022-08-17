@@ -23,13 +23,13 @@ const Main = () => {
             <h1>당신의 미래 애인상을<br />찾아드립니다.</h1>
             <p>내 얼굴형으로 추측하는 <br />나의 미래 애인상은 과연 누가 될까요?</p>
             <div className='hero-btns'>
-            <button type='button' onClick={onButtonEvent}
-              className='btns'
-              buttonStyle='btn--outline'
-              buttonSize='btn--large'
-            >
-              GET STARTED
-            </button>
+              <button type='button' onClick={onButtonEvent}
+                className='btns'
+                buttonStyle='btn--outline'
+                buttonSize='btn--large'
+              >
+                GET STARTED
+              </button>
         </div>
           </div>
         </div>

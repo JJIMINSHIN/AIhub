@@ -52,7 +52,7 @@ input {
     cursor: pointer;
     color : #FEDB39;
 }
-.signin_btn {
+.loginregister__button {
     color : white;
     background-color: #FEDB39;
     border: none;
@@ -65,7 +65,7 @@ input {
     cursor: pointer;
 } 
 
-.signin_btn:hover{
+.loginregister__button:hover{
     transition: all 0.3s ease-out;
     background: #fff;
     color: #FEDB39;
