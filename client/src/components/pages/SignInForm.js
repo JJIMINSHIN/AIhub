@@ -83,14 +83,14 @@ const SignInForm = () => {
                 <button className='signup_register_btn' onClick={onSignUp}>회원가입</button>
               </Link>
             </div>
-            <Link to='/' className='btn-mobile'>
+            {/* <Link to='/' className='btn-mobile'>
               <div><button className="signin_btn" type="submit" onSubmit={onSubmit} onClick={onLoginButton}>로그인</button></div>
+            </Link> */}
+            <Link to='/' className='btn-mobile'>
+              <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
             </Link>
           </form>
         </div>
-        <Link to='/' className='btn-mobile'>
-          <div><button type="submit" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
-        </Link>
       </div>
     </div>
 

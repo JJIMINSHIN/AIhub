@@ -82,7 +82,23 @@ video {
 
   }
   
-  .hero-btns {
+  .btns {
+    background-color: transparent;
+    border: 2px solid #FEDB39;
+    width: 300px;
+    height: 50px;
+    color: #FEDB39;
+    font-weight: bold;
+    font-size:  20px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+
+  .btns:hover{
+    background-color: white;
+  }
+
+  /* .hero-btns {
     margin-top: 32px;
   }
   
@@ -94,6 +110,19 @@ video {
   .fa-play-circle {
     margin-left: 4px;
   }
+
+  .btn--outline {
+    background-color: transparent;
+    color: #fff;
+    padding: 8px 20px;
+    border: 1px solid var(--primary);
+    transition: all 0.3s ease-out;
+  } */
+
+  /* .btn--large {
+    padding: 12px 26px;
+    font-size: 20px;
+  } */
   
   @media screen and (max-width: 960px) {
     .text_container > h1 {
