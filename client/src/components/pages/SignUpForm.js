@@ -76,18 +76,22 @@ const SignUpForm = () => {
     return await axios.post(port.url + "/user/signup", signUpData);
   }
   return (
-    <div className="loginregister">
-      <h1>SIGN UP</h1>
-      <form>
-        <div><input name="email" id='email' type="email" placeholder="이메일" value={signUpData.email} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="password" id='password' type="password" placeholder="비밀번호" value={signUpData.password} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="rePassword" id='rePassword' type="password" placeholder="비밀번호 확인" value={signUpData.rePassword} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <div><input name="name" id='name' type="text" placeholder="이름" value={signUpData.name} onChange={onChangeSignUData} className="loginregister__input" /></div>
-        <Link to='/SignInForm' className='btn-mobile'>
-          <div><button type="submit" onClick={onClickSignUpButton} className="loginregister__button">계정 생성하기</button></div>
-        </Link>
-  
-      </form>
+    <div className='signupform_container'>
+    <video src='/videos/main_yellow.mp4' autoPlay loop muted />
+    <div className='wrap'>
+      <div className='signup_box'>
+        <h1>SIGN UP</h1>
+        <form>
+          <div><input name="email" id='email' type="email" placeholder="이메일" value={signUpData.email} onChange={onChangeSignUData} className="loginregister__input" /></div>
+          <div><input name="password" id='password' type="password" placeholder="비밀번호" value={signUpData.password} onChange={onChangeSignUData} className="loginregister__input" /></div>
+          <div><input name="rePassword" id='rePassword' type="password" placeholder="비밀번호 확인" value={signUpData.rePassword} onChange={onChangeSignUData} className="loginregister__input" /></div>
+          <div><input name="name" id='name' type="text" placeholder="이름" value={signUpData.name} onChange={onChangeSignUData} className="loginregister__input" /></div>
+          <Link to='/SignInForm' className='btn-mobile'>
+            <div><button className="signup_btn" type="submit" onClick={onClickSignUpButton}>계정 생성하기</button></div>
+          </Link>
+        </form>
+      </div>
+    </div>
     </div>
   );
 };
