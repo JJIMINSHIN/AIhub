@@ -4,9 +4,10 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node app.js",
     "build": "ng build",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod" 
+
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,8 @@
     "url": "https://github.com/JJIMINSHIN/Nieun/issues"
   },
   "homepage": "https://github.com/JJIMINSHIN/Nieun#readme",
-  "engines": {
-    "node": "16.13.1"
-  },
-  "dependencies": {
-    "@angular-devkit/build-angular": "^14.1.3",
-    "@angular/cli": "^14.1.3",
-    "@angular/compiler-cli": "^14.1.3",
-    "typescript": "^4.7.4"
+  "engines":{
+    "node": "16.13.1",
+    "npm":"8.1.2"
   }
 }
