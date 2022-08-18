@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './SignInForm.css'
-import { Link } from 'react-router-dom';
-import SignUpForm from './SignUpForm';
-import Main from '../Main';
 import $ from "jquery";
 import axios from "axios";
 import port from './../data/port.json';
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie";
+
 
 
 
@@ -51,7 +48,7 @@ const SignInForm = () => {
     sendSignInData().then(res => {
       console.log(res.data.result);
       alert('로그인이 완료되었습니다.');
-      navigate('/futureHubby')
+      window.location.href='/main.html'
     }).catch(e=>{
       throw new Error(e)
     })

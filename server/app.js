@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRouter = require('./routes/user');
 const cors = require('cors');
-
+const fs = require('fs');
 const app = express();
 
 
@@ -20,6 +20,10 @@ app.use(cors());
 
 app.use(express.json());
 app.use('/', userRouter);
+app.use(express.static('public'))
+app.get('/main', function(req, res){
+    res.sendFile(__dirname+ '/main.html')
+})
 
 app.listen(8080, ()=>{
     console.log('server open')

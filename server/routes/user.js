@@ -6,8 +6,6 @@ const jwtConfig = require('./../config/jwtConfig')
 const jwt = require('jsonwebtoken');
 const nodeMailer = require('nodemailer'); 
 
-
-
 router.post('/signup', async (req, res) => {
 
     try {
