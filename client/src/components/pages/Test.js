@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../../../src/App.css';
 import * as tmImage from '@teachablemachine/image';
 import $ from 'jquery';
@@ -200,131 +200,122 @@ const Test = () => {
   }
 
   const handleChange = (event) => {
-    setLoading(true);
-    setShowResult(false)
+  
+    // setShowResult(false)
     setPredictionArr(null);
     setResult(null);
+    let reader = new FileReader();
 
+    reader.onloadend = () => {
+      // 2. 읽기가 완료되면 아래코드가 실행됩니다.
+      const base64 = reader.result;
+      if (base64) {
+        setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+      }
+      if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
+            setImgFile(event.target.files[0]); // 파일 상태 업데이트
+            init().then(
+              console.log("init 모델"),
+              predict()
+            );
+    
+          }
+
+        }
+    }
+
+    
+useEffect(()=>{
+  setPredictionArr();
+  setResult()
+})
+
+
+    return (
+      <>
+        <main>
+          <nav className="p-3 container navbar navbar-expand-lg navbar-light">
+            <Link to='/' className="navbar-brand">애인상 테스트</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav">
+                <li className="nav-item active">
+                  <a className="nav-link" href="/">애인상 테스트
+                    <span className="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li className="nav-item active">
+                  <a className="nav-link" href="/" id="yotube-top-link"> 니은팀</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <section className="section">
+            <h1 className="title">애인상 테스트</h1>
+            <h2 className="subtitle">얼굴로 보는 인공지능 애인상 테스트</h2>
+            <h2 className="sr-only">나는 어떤 동물과 닮았을까? 나의 애인상 찾기를 해보세요!</h2>
+            <h3 className="sr-only">대표 애인상 연예인 사진 데이터로 학습한 인공지능이 나의 얼굴로 동물상과 특징을 찾아드립니다.</h3>
+            <h4 className="sr-only">본 서비스는 Google의 인공지능 teachable machine 2.0을 활용하였습니다.</h4>
+            <p className="sr-only">얼굴로 보는 인공지능 애인상 테스트, 나와 닮은 애인상을 찾아보세요! 대표 동물상 연예인 사진 데이터로 학습한 인공지능이 나의 얼굴로 동물상과 특징을 찾아드립니다.
+              회원가입도 필요없이 화면에서 바로 확인해보세요! 사진 데이터는 그 어디에도 전송되지 않습니다. 인공지능이 보는 나의 동물상 테스트 한번 해보세요! 강아지상? 고양이상? 여우상? 사슴상? 토끼상?
+              곰상? 공룡상? 얼굴상 테스트를 통해 나와 닮은 동물 찾기를 할 수 있습니다.</p>
+          </section>
+          <section className="d-flex justify-content-center">
+            <p className="d-flex align-items-center pr-3">여자</p>
+            <div>
+              <input type="checkbox" id="gender" />
+              <label htmlFor="gender">
+                <span className="knob">
+                  <i></i>
+                </span>
+              </label>
+            </div>
+            <p className="d-flex align-items-center pl-3">남자</p>
+          </section>
+          <div className="mt-3 container file-upload">
+            <div className="image-upload-wrap">
+              {/* onChange={handleChangeFile()} */}
+              <input className="file-upload-input" type='file' onChange={handleChange()} accept="image/*" />
+              <div className="drag-text">
+                <img src="img/upload.svg" className="mt-5 pt-5 upload" alt="d" />
+                <h3 className="mb-5 pb-5 pt-4  upload-text">얼굴 사진을 올려놓거나 눌러서 업로드하세요!</h3>
+              </div>
+            </div>
+            <div className="file-upload-content">
+              {/* <img className="file-upload-image rounded-circle" id="face-image" src="#" alt="your image" alt="" /> */}
+              {/* <a className="heart" href="/d" style="font-size: 27px; color: rgb(255, 193, 220);" >♥</a> */}
+              {/* <img className="file-result-image rounded-circle" id="result-image" src="adfad" alt="result image" alt="d" /> */}
+              <div id="loading" className="animated bounce">
+                <div className="spinner-border" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+                <p className="text-center">AI가 당신의 동물상을 분석중입니다.</p>
+              </div>
+              <p className="result-message"></p>
+              <div id="label-container" className="d-flex flex-column justify-content-around"></div>
+              <div id="addThis" className="addthis_inline_share_toolbox_6lz1"></div>
+              <div className="pt-3 image-title-wrap">
+                <button type="button p-2" className="try-again-btn" >
+                  <span className="try-again-text">다른 사진으로 재시도</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+        </main>
+        <footer className="footer pt-5 container d-flex justify-content-center">
+          <div>
+            <p>&copy; 니은팀 2022. All Rights Reserved. </p>
+          </div>
+        </footer>
+      </>
+    );
 
   }
 
-
-  // //파일 읽기
-  // const handleChangeFile = (event) => {
-  //   setLoading(true);
-  //   setShowResult(false)
-  //   setPredictionArr(null);
-  //   setResult(null);
-
-  //   let reader = new FileReader();
-
-  //   reader.onloadend = () => {
-  //     // 2. 읽기가 완료되면 아래코드가 실행됩니다.
-  //     const base64 = reader.result;
-  //     if (base64) {
-  //       setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
-  //     }
-  //   }
-
-  //   init().then(
-  //     console.log("init 모델"),
-  //     predict()
-  //   );
-  //   if (event.target.files[0]) {
-  //     reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장합니다.
-  //     setImgFile(event.target.files[0]); // 파일 상태 업데이트
-  //     init().then(
-  //       console.log("init 모델"),
-  //       predict()
-  //     );
-
-  //   }
-  // }
-
-  return (
-    <>
-      <main>
-        <nav className="p-3 container navbar navbar-expand-lg navbar-light">
-          <Link to='/' className="navbar-brand">애인상 테스트</Link>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item active">
-                <a className="nav-link" href="/">애인상 테스트
-                  <span className="sr-only">(current)</span>
-                </a>
-              </li>
-              <li className="nav-item active">
-                <a className="nav-link" href="/" id="yotube-top-link"> 니은팀</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <section className="section">
-          <h1 className="title">애인상 테스트</h1>
-          <h2 className="subtitle">얼굴로 보는 인공지능 애인상 테스트</h2>
-          <h2 className="sr-only">나는 어떤 동물과 닮았을까? 나의 애인상 찾기를 해보세요!</h2>
-          <h3 className="sr-only">대표 애인상 연예인 사진 데이터로 학습한 인공지능이 나의 얼굴로 동물상과 특징을 찾아드립니다.</h3>
-          <h4 className="sr-only">본 서비스는 Google의 인공지능 teachable machine 2.0을 활용하였습니다.</h4>
-          <p className="sr-only">얼굴로 보는 인공지능 애인상 테스트, 나와 닮은 애인상을 찾아보세요! 대표 동물상 연예인 사진 데이터로 학습한 인공지능이 나의 얼굴로 동물상과 특징을 찾아드립니다.
-            회원가입도 필요없이 화면에서 바로 확인해보세요! 사진 데이터는 그 어디에도 전송되지 않습니다. 인공지능이 보는 나의 동물상 테스트 한번 해보세요! 강아지상? 고양이상? 여우상? 사슴상? 토끼상?
-            곰상? 공룡상? 얼굴상 테스트를 통해 나와 닮은 동물 찾기를 할 수 있습니다.</p>
-        </section>
-        <section className="d-flex justify-content-center">
-          <p className="d-flex align-items-center pr-3">여자</p>
-          <div>
-            <input type="checkbox" id="gender" />
-            <label htmlFor="gender">
-              <span className="knob">
-                <i></i>
-              </span>
-            </label>
-          </div>
-          <p className="d-flex align-items-center pl-3">남자</p>
-        </section>
-        <div className="mt-3 container file-upload">
-          <div className="image-upload-wrap">
-            {/* onChange={handleChangeFile()} */}
-            <input className="file-upload-input" type='file' accept="image/*" />
-            <div className="drag-text">
-              <img src="img/upload.svg" className="mt-5 pt-5 upload" alt="d" />
-              <h3 className="mb-5 pb-5 pt-4  upload-text">얼굴 사진을 올려놓거나 눌러서 업로드하세요!</h3>
-            </div>
-          </div>
-          <div className="file-upload-content">
-            {/* <img className="file-upload-image rounded-circle" id="face-image" src="#" alt="your image" alt="" /> */}
-            {/* <a className="heart" href="/d" style="font-size: 27px; color: rgb(255, 193, 220);" >♥</a> */}
-            {/* <img className="file-result-image rounded-circle" id="result-image" src="adfad" alt="result image" alt="d" /> */}
-            <div id="loading" className="animated bounce">
-              <div className="spinner-border" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <p className="text-center">AI가 당신의 동물상을 분석중입니다.</p>
-            </div>
-            <p className="result-message"></p>
-            <div id="label-container" className="d-flex flex-column justify-content-around"></div>
-            <div id="addThis" className="addthis_inline_share_toolbox_6lz1"></div>
-            <div className="pt-3 image-title-wrap">
-              <button type="button p-2" className="try-again-btn" >
-                <span className="try-again-text">다른 사진으로 재시도</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-
-      </main>
-      <footer className="footer pt-5 container d-flex justify-content-center">
-        <div>
-          <p>&copy; 니은팀 2022. All Rights Reserved. </p>
-        </div>
-      </footer>
-    </>
-  );
-
-}
-
-export default Test
+  export default Test;
