@@ -12,5 +12,9 @@
   "scripts": {
     "postinstall": "npm install -g serv",
     "build": "react-scripts build"
+  },
+  "engines":{
+    "node": "16.13.1",
+    "npm":"8.1.2"
   }
 }
