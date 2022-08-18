@@ -17,16 +17,9 @@ mongoose.connection.on("error", (err)=>{
 });
 
 app.use(cors());
- 
+
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../client/build')));
-
 app.use('/', userRouter);
-
-// app.get('/', (req, res)=>{
-//     res.send(express.static(path.join(__dirname, '../client/build')))
-// })
-
 
 
 app.listen(8080, ()=>{
