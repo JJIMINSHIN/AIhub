@@ -17,7 +17,7 @@ const Main = () => {
   return (
 
     <div className='hero-container'>
-      <video src='/videos/main_yellow.mp4' autoPlay loop muted />
+      <video src='/videos/video-1.mp4' autoPlay loop muted />
         <div className='wrap'>
           <div className='text_container'>
             <h1>당신의 미래 애인상을<br />찾아드립니다.</h1>
@@ -25,8 +25,8 @@ const Main = () => {
             <div className='hero-btns'>
               <button type='button' onClick={onButtonEvent}
                 className='btns'
-                // buttonStyle='btn--outline'
-                // buttonSize='btn--large'
+                buttonStyle='btn--outline'
+                buttonSize='btn--large'
               >
                 GET STARTED
               </button>

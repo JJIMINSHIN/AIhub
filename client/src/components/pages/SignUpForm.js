@@ -18,9 +18,13 @@ const SignUpForm = () => {
   const navigate = useNavigate();
 
 
-  useEffect(() => {
-    console.log(signUpData);
-  }, [setSignUpData]);
+  // useEffect(() => {
+  //   console.log(signUpData);
+  // }, [setSignUpData]);
+
+  const onSignUp = () => {
+    navigate('/Test')
+  }
 
   const onChangeSignUData = (e) => {
     setSignUpData({
