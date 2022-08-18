@@ -49,9 +49,9 @@ const SignInForm = () => {
     }
 
     sendSignInData().then(res => {
-      console.log(res);
+      console.log(res.data.result);
       alert('로그인이 완료되었습니다.');
-      window.location.href='/futureHubby'
+      navigate('/futureHubby')
     }).catch(e=>{
       throw new Error(e)
     })

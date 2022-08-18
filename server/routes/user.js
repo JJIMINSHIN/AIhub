@@ -2,7 +2,8 @@ const { Router } = require('express');
 const { User } = require('../models');
 const router = Router();
 const cryto = require("crypto");
-
+const jwtConfig = require('./../config/jwtConfig')
+const jwt = require('jsonwebtoken');
 
 router.post('/signup', async (req, res) => {
 
@@ -67,6 +68,28 @@ router.post('/login', async (req, res) => {
             })
             return;
         }
+
+        jwt.sign({
+            email:email,
+            name: checkEmail.name
+        },jwtConfig.secret,{
+            expiresIn: '1d'
+        }, (err, token) =>{
+            if(err){
+                res.status(401).json({
+                    status: false,
+                    message: '로그인을 해주세요'
+                });
+            }else{
+                res.json({
+                    status: true,
+                    accessToken: token,
+                    email: email,
+                    name: checkEmail.name
+                })
+            }
+        }
+        )
 
     } catch (e) {
         throw new Error(e)
