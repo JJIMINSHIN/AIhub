@@ -17,13 +17,17 @@ mongoose.connection.on("error", (err)=>{
 });
 
 app.use(cors());
-
+ 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../client/build')));
+
 app.use('/', userRouter);
-app.use(express.static('public'))
-app.get('/main', function(req, res){
-    res.sendFile(__dirname+ '/main.html')
-})
+
+// app.get('/', (req, res)=>{
+//     res.send(express.static(path.join(__dirname, '../client/build')))
+// })
+
+
 
 app.listen(8080, ()=>{
     console.log('server open')

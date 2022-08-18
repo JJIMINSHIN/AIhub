@@ -49,6 +49,7 @@ const SignInForm = () => {
       console.log(res.data.result);
       alert('로그인이 완료되었습니다.');
       window.location.href='/main.html'
+      // navigate('/main')
     }).catch(e=>{
       throw new Error(e)
     })
