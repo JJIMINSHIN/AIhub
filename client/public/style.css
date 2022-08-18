@@ -441,3 +441,8 @@ input:checked + label > .knob > i:before {
     width: 320px;
     margin: 0 auto;
 }
+
+.kakao{
+  width: 1600px;
+  margin: 0 auto;
+}
