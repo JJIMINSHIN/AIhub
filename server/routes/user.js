@@ -4,6 +4,9 @@ const router = Router();
 const cryto = require("crypto");
 const jwtConfig = require('./../config/jwtConfig')
 const jwt = require('jsonwebtoken');
+const nodeMailer = require('nodemailer'); 
+
+
 
 router.post('/signup', async (req, res) => {
 
@@ -99,6 +102,74 @@ router.post('/login', async (req, res) => {
 
 }); //login
 
+//비밀번호 찾기
+
+router.post("/findPassword", async(req, res) =>{
+   try{
+    let { email } = req.body;
+    let user = await User.findOne({email});
+
+    let myEmail = "scalla1031@gmail.com";
+
+    let transporter = nodeMailer.createTransport({
+        service: 'gmail',
+        host: 'stmp.gmail.com',
+        port: 587,
+        secure: false,
+        auth:{
+            user: myEmail,
+            pass:" oduqullxdvfcvyjx"
+        }
+    })
+
+    const randomPassword = randomPw();
+    const hashRandomPassword = passwordHash(randomPassword);
+
+    await User.findOneAndUpdate({shortId: user.shortId}, {
+        password: hashRandomPassword,
+        status: true
+    });
+
+    let info = await transporter.sendMail({
+        from: `"니은팀" <${myEmail}>`,
+        to: user.email,
+        subject: '임시 비밀번호 안내해드립니다.',
+        html: `<b>초기화 비밀번호: ${randomPassword}</b>`
+    });
+
+    console.log(info.messsageId);
+    res.json({ result: "이메일을 전송하였습니다." })
+   }catch(e){
+    throw new Error(e);
+
+   }
+
+});
+
+// 비밀번호 update 하기
+router.post('/:shortId/update', async(req, res) =>{
+    
+    let {shortId} = req.params;
+    let {password} = req.body;
+
+    try{
+        await User.updateOne({shortId},{
+            password
+        });
+
+        res.json({
+            result : "수정이 완료되었습니다."
+        })
+    }catch(e){
+        throw new Error(e);
+    }
+
+});
+
+
+const randomPw = () =>{
+    return Math.floor(Math.random()*(10**8)).toString().padStart('0',8);
+}
 
 // password hash
 const hashPassword = (password) => {
