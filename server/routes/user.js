@@ -38,6 +38,7 @@ router.post('/signup', async (req, res) => {
             result: '회원가입이 완료되었습니다. 로그인해주세요'
         })
     } catch (e) {
+        console.log('회원가입에 실패하셨습니다.')
         throw new Error(e)
     }
 

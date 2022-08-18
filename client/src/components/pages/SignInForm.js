@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './SignInForm.css'
+import { Link } from 'react-router-dom';
 import SignUpForm from './SignUpForm';
 import Main from '../Main';
 import $ from "jquery";
@@ -77,11 +78,12 @@ const SignInForm = () => {
               <span>아직 회원이 아니신가요?</span>
               <button className='signup_register_btn' onClick={onSignUp}>회원가입</button>
             </div>
-            {/* <Link to='/futureHubby' className='btn-mobile'> */}
-            <div><button type="button" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
-            {/* </Link> */}
+
           </form>
         </div>
+        {/* <Link to='/futureHubby' className='btn-mobile'> */}
+          <div><button type="button" onClick={onLoginButton} className="loginregister__button">로그인</button></div>
+        {/* </Link> */}
       </div>
     </div>
 
