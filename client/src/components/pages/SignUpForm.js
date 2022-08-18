@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 import axios from 'axios';
 import './SignUpForm.css';
-import { Link } from 'react-router-dom';
 import port from './../data/port.json'
 import { useNavigate } from "react-router-dom";
 
@@ -80,7 +79,7 @@ const SignUpForm = () => {
   }
   return (
     <div className='signupform_container'>
-    <video src='/videos/main_yellow.mp4' autoPlay loop muted />
+    <video src='/videos/video-1.mp4' autoPlay loop muted />
     <div className='wrap'>
       <div className='signup_box'>
         <h1>SIGN UP</h1>

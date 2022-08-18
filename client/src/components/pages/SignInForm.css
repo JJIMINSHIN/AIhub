@@ -31,11 +31,15 @@ video {
     /* opacity: 80%; */
 }
 
-input {
-    width: 300px;
+h1 {
+    font-weight: 400;
+}
+
+.loginregister__input {
+    width: 500px;
     height: 50px;
     padding-left: 10px;
-    margin: 10px;
+    margin: 5px;
     border: 1px solid #73777B ;
     border-radius: 5px;
 }
@@ -50,15 +54,15 @@ input {
     outline: 0;
     background-color: transparent;
     cursor: pointer;
-    color : #FEDB39;
+    color : #002B5B;
 }
 .loginregister__button {
     color : white;
-    background-color: #FEDB39;
+    background-color: #002B5B;
     border: none;
     outline: 0;
     font-weight: 700;
-    width: 100%;
+    width: 500px;
     border-radius: 10px;
     height: 48px;
     margin-top: 10px;
@@ -68,14 +72,20 @@ input {
 .loginregister__button:hover{
     transition: all 0.3s ease-out;
     background: #fff;
-    color: #FEDB39;
+    color: #002B5B;
     transition: 250ms;
-    border : 1px solid #FEDB39;
+    border : 1px solid #002B5B;
 }
 
 @media screen and (max-width: 768px) {
     .signin_box {
         width: 500px;
+    }
+    .loginregister__input {
+        width: 300px;
+    }
+    .loginregister__button {
+        width: 300px;
     }
 }
 
@@ -88,7 +98,7 @@ input {
         height: 40px;
         margin: 5px;
     }
-    .signin_btn {
+    .loginregister__button {
         width: 230px;
         height: 40px;
     }

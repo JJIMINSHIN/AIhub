@@ -54,9 +54,9 @@ video {
 }
 
 .text_container {
-    background-color: rgba( 255, 255, 255, 0.5 );
+    /* background-color: rgba( 255, 255, 255, 0.5 );
     width: 100vw;
-    height: 100vh;
+    height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,9 +65,9 @@ video {
 }
 
   .text_container > h1 {
-    font-family: 'KOTRA_BOLD-Bold';
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    color: #FEDB39;
+    /* font-family: 'KOTRA_BOLD-Bold'; */
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+    color: white;
     font-weight: bold;
     font-size: 80px;
     z-index: 5;
@@ -76,18 +76,19 @@ video {
   .text_container > p {
     margin-top: 8px;
     font-size: 32px;
-    font-family: 'KOTRA_BOLD-Bold';
-    color: #FEDB39;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-weight: bold;
+    /* font-family: 'KOTRA_BOLD-Bold'; */
+    color: white;
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
 
   }
   
   .btns {
     background-color: transparent;
-    border: 2px solid #FEDB39;
+    border: 2px solid white;
     width: 300px;
     height: 50px;
-    color: #FEDB39;
+    color: white;
     font-weight: bold;
     font-size:  20px;
     border-radius: 5px;
@@ -95,6 +96,7 @@ video {
   }
 
   .btns:hover{
+    color: #002B5B;
     background-color: white;
   }
 
