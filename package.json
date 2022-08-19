@@ -4,8 +4,8 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js",
-    "backend": "nodemon app.js",
+    "start": "node app.js",
+    "backend": "node app.js",
     "frontend": "npm run start --prefix client",
     "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
