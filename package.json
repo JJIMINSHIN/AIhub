@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "build":"react-scripts build",
     "backend": "node app.js",
-    "frontend": "npm run start --prefix client",
+    "frontend": "react-scripts start",
     "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
-    "heroku-postbuild": "npm run build"
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
