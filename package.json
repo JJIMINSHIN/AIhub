@@ -4,10 +4,12 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "backend": "node app.js",
-    "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
+
+    "start-client": "react-scripts start",
+    "build": "react-scripts build && (cd server && yarn install)",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "start": "cd server && yarn start",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
