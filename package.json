@@ -4,8 +4,7 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-    "build-css": "node-sass src/ -o src/",
-    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+   
     "start": "npm run start:server",
     "watch": "npm-run-all --parallel watch-css start:*",
     "start:server": "node server/app.js",
