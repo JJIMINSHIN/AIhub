@@ -4,11 +4,16 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "backend": "node app.js",
-    "frontend": "npm run start --prefix client",
-    "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
- "heroku-postbuild": "npm run build"
+    "build-css": "node-sass src/ -o src/",
+    "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive",
+    "start": "npm run start:server",
+    "watch": "npm-run-all --parallel watch-css start:*",
+    "start:server": "node server/app.js",
+    "start:client": "react-scripts start",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,8 +25,8 @@
     "url": "https://github.com/JJIMINSHIN/Nieun/issues"
   },
   "homepage": "https://github.com/JJIMINSHIN/Nieun#readme",
-  "engines":{
+  "engines": {
     "node": "16.13.1",
-    "npm":"8.1.2"
+    "npm": "8.1.2"
   }
 }
