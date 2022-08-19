@@ -2,7 +2,7 @@
   "name": "nieun",
   "version": "1.0.0",
   "description": "AI 양재 7조",
-  "main": "index.js",
+  "main": "server/app.js",
   "scripts": {
     "client": "npm run start --prefix client",
     "server": "nodemon app.js",
