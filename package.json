@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "backend": "node app.js",
-    "frontend": "react-scripts start",
+    "frontend": "npm run start --prefix client",
     "dev": "concurrently \"npm run backend\" \"npm run start --prefix client\"",
-    "postinstall": "npm run build"
+ "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
