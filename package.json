@@ -4,9 +4,8 @@
   "description": "AI 양재 7조",
   "main": "index.js",
   "scripts": {
-
     "start-client": "react-scripts start",
-    "build": "react-scripts build && (cd server && yarn install)",
+    "build": "react-scripts build && (cd server && npm install)",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start": "cd server && yarn start",
