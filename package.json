@@ -4,12 +4,11 @@
   "description": "AI 양재 7조",
   "main": "server/app.js",
   "scripts": {
-    "client": "npm run start --prefix client",
-    "server": "nodemon app.js",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "start": "node server/app.js",
-    "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "start": "nodemon server/app.js",
+    "build": "npm run build-client && npm run build-server",
+		"build-client": "webpack --node-env production --config webpack.prod.ts",
+    "build-server": "webpack --node-env production --config webpack.server.ts",
+    "heroku-prebuild": "npm install -f"
   },
   "repository": {
     "type": "git",
