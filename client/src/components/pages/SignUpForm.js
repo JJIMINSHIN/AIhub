@@ -4,7 +4,7 @@ import axios from 'axios';
 import './SignUpForm.css';
 import port from './../data/port.json'
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from '../../../config';
+// import { axiosInstance } from '../../../config';
 
 
 const SignUpForm = () => {
@@ -78,7 +78,7 @@ const SignUpForm = () => {
 
   //회원가입 router와 연결
   const sendSignUpData = async () => {
-    return await axiosInstance.post(port.url + "/signup", signUpData);
+    return await axios.post(port.url + "/signup", signUpData);
   }
   return (
     <div className='signupform_container'>

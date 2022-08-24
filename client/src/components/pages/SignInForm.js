@@ -4,7 +4,7 @@ import $ from "jquery";
 import axios from "axios";
 import port from './../data/port.json';
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from '../../../config';
+// import { axiosInstance } from '../../../config';
 
 
 
@@ -60,7 +60,7 @@ const SignInForm = () => {
   }
 
   const sendSignInData = async () => {
-    return await axiosInstance.post(port.url + '/login', signInData);
+    return await axios.post(port.url + '/login', signInData);
   }
 
   return (
