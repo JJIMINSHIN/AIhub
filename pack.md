@@ -4,11 +4,12 @@
   "description": "AI 양재 7조",
   "main": "app.js",
   "scripts": {
-    "client": " cd client && npm run start",
-    "server": "cd server && node app.js",
+    "client": "npm run start --prefix client",
+    "server": "node app.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node app.js",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-prebuild": "npm install -f",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
