@@ -2,10 +2,10 @@
   "name": "nieun",
   "version": "1.0.0",
   "description": "AI 양재 7조",
-  "main": "app.js",
+  "main": "node app.js",
   "scripts": {
     "client": " cd client && npm run start",
-    "server": "cd server && node app.js",
+    "server": "node app.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node app.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
