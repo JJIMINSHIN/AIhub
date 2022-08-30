@@ -109,7 +109,7 @@ router.post("/findPassword", async(req, res) =>{
     let { email } = req.body;
     let user = await User.findOne({email});
 
-    let myEmail = "scalla1031@gmail.com";
+    let myEmail = "";
 
     let transporter = nodeMailer.createTransport({
         service: 'gmail',
@@ -118,7 +118,7 @@ router.post("/findPassword", async(req, res) =>{
         secure: false,
         auth:{
             user: myEmail,
-            pass:" oduqullxdvfcvyjx"
+            pass:" "
         }
     })
 
