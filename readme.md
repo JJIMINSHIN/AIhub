@@ -9,7 +9,6 @@
 <br>
 
 # 프로젝트 소개
-
 ## **애인상 테스트** 
 - `사랑하면 서로 닮는다`라는 이 말에서 저희 프로젝트는 시작되었습니다.
 
@@ -29,3 +28,6 @@
 <br><br>
 
 # 시연영상
+<p align="center">
+<img src="https://user-images.githubusercontent.com/86641936/188143704-cd758f6e-9cea-4403-bef5-9e6bba89d98f.gif">
+</p>
