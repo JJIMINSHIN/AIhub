@@ -19,6 +19,7 @@
 
 # 역할
 
+|:---|:---|:---|
 | [지민🐣](https://github.com/JJIMINSHIN) |[세림🐹](https://github.com/anonymousRecords)| [소유🐻](https://github.com/Sososoy)|
 | 담당 | 담당 | 담당 |
 |- Leader <br> - 백엔드 <br> - 프론트 <br> - 인공지능 <br> |- 프론트엔드 <br> - 발표 <br> - PPT제작 |-  인공지능 <br> - PPT제작|
